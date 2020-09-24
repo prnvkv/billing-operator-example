@@ -1,1 +1,1 @@
-# billing-service-example
+# billing-operator-example
