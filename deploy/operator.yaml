@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billing-operator-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: billing-operator-example
+  template:
+    metadata:
+      labels:
+        name: billing-operator-example
+    spec:
+      serviceAccountName: billing-operator-example
+      containers:
+        - name: billing-operator-example
+          # Replace this with the built image name
+          image: REPLACE_IMAGE
+          command:
+          - billing-operator-example
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "billing-operator-example"
