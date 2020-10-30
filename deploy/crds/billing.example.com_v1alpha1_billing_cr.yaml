@@ -1,0 +1,7 @@
+apiVersion: billing.example.com/v1alpha1
+kind: Billing
+metadata:
+  name: example-billing
+spec:
+  # Add fields here
+  size: 3

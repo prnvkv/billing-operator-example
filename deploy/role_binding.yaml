@@ -1,0 +1,11 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: billing-operator-example
+subjects:
+- kind: ServiceAccount
+  name: billing-operator-example
+roleRef:
+  kind: Role
+  name: billing-operator-example
+  apiGroup: rbac.authorization.k8s.io
